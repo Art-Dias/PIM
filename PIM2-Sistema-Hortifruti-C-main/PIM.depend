@@ -1,0 +1,117 @@
+# depslib dependency file v1.0
+1727819776 source:c:\users\zukki\downloads\pim\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<windows.h>
+	<conio.h>
+	<ctype.h>
+	"interface.c"
+	"funcoes.c"
+	"estilos.c"
+
+1727830281 c:\users\zukki\downloads\pim\interface.c
+	"interface.h"
+	"structs.h"
+	"funcoes.h"
+	"estilos.h"
+
+1727818694 c:\users\zukki\downloads\pim\interface.h
+
+1727819585 c:\users\zukki\downloads\pim\structs.h
+
+1727818774 c:\users\zukki\downloads\pim\funcoes.h
+
+1727819125 c:\users\zukki\downloads\pim\estilos.h
+
+1727818787 c:\users\zukki\downloads\pim\funcoes.c
+	"funcoes.h"
+
+1727827620 c:\users\zukki\downloads\pim\estilos.c
+	"estilos.h"
+
+1730000654 source:c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<windows.h>
+	<conio.h>
+	<ctype.h>
+	"interface.c"
+	"funcoes.c"
+	"estilos.c"
+	"cadastros.c"
+
+1730002319 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\interface.c
+	"interface.h"
+	"structs.h"
+	"funcoes.h"
+	"estilos.h"
+	"cadastros.h"
+
+1730000654 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\interface.h
+
+1730002144 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\structs.h
+
+1730003826 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\funcoes.h
+
+1730000654 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\estilos.h
+
+1730006582 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\funcoes.c
+	"funcoes.h"
+
+1730000654 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\estilos.c
+	"estilos.h"
+
+1730005758 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\cadastros.h
+
+1730006819 c:\users\pedro\onedrive\projetos\pim_2_hortifrut\pim2-sistema-hortifruti-c\cadastros.c
+	"cadastros.h"
+	"structs.h"
+	"estilos.h"
+	"funcoes.h"
+
+1730006974 source:c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<windows.h>
+	<conio.h>
+	<ctype.h>
+	"interface.c"
+	"funcoes.c"
+	"estilos.c"
+	"cadastros.c"
+
+1730139900 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\interface.c
+	"interface.h"
+	"structs.h"
+	"funcoes.h"
+	"estilos.h"
+	"cadastros.h"
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\interface.h
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\structs.h
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\funcoes.h
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\estilos.h
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\cadastros.h
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\funcoes.c
+	"funcoes.h"
+
+1730006974 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\estilos.c
+	"estilos.h"
+
+1730139912 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\cadastros.c
+	"cadastros.h"
+	"structs.h"
+	"estilos.h"
+	"funcoes.h"
+
