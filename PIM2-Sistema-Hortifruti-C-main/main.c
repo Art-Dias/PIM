@@ -19,6 +19,9 @@ int main(int argc, char *argv[]){
     telaTamanho();
     telaEstilo();
     telaInicio();
+    //Comando para posicionar tela
+    system("powershell -command \"[console]::windowheight=[console]::largestwindowheight; [console]::windowwidth=[console]::largestwindowwidth\"");
+
 
     return 0;
 }

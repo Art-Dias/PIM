@@ -15,23 +15,28 @@ float quantidadeSelecionada[100];  // Guarda quantidade
 int contagemItems = 0;  // Contador de itens selecionados
 float valor_final;
 
-void telaTamanho(){
+void telaTamanho()
+{
     system("MODE con cols=168");// configura a quantidad de colunas e linhas que o console terá;
 }
 
-void telaLimpa(){
+void telaLimpa()
+{
     system("cls");// limpa a tela;
 }
 
-void telaPause(){
+void telaPause()
+{
     system("pause > NULL");// pausa a tela sem mostrar o texto padrão da função;
 }
 
-void telaEstilo(){
+void telaEstilo()
+{
     system("color F0");// define a cor "f" verde para o fundo e a cor "0" preto para o texto
 }
 
-void telaInicio(){
+void telaInicio()
+{
 
     system("title Início");
 
@@ -64,7 +69,8 @@ void telaInicio(){
     telaLogin();
 }
 
-void telaLogin(){
+void telaLogin()
+{
 
     system("title Login");
 
@@ -78,7 +84,8 @@ void telaLogin(){
 
     Pessoa pessoa;
 
-    while (1) {
+    while (1)
+    {
         // Exibe o campo de entrada do usuário
         printf("\n\n\n\n\n\n\n"
                "\n                                         ");
@@ -86,19 +93,19 @@ void telaLogin(){
         printf(                                            "                                      ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                   "                                         \n"
-                 "                                         ");
+                "                                         ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_INTENSITY);
         bold(1);
         printf(                                            "                Login                 ");
         bold(0);
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                   "                                         \n"
-                 "                                         ");
+                "                                         ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_INTENSITY);
         printf(                                            "                                      ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                   "                                         \n\n"
-               "\n                                                ");
+                "\n                                                ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE| FOREGROUND_GREEN | FOREGROUND_INTENSITY| FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                                " Usuário: ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
@@ -108,7 +115,8 @@ void telaLogin(){
         fgets(pessoa.login.usuario, sizeof(pessoa.login.usuario), stdin);
         pessoa.login.usuario[strcspn(pessoa.login.usuario, "\n")] = 0; // Remove caractere de nova linha.
 
-        if (strlen(pessoa.login.usuario) == 0) {
+        if (strlen(pessoa.login.usuario) == 0)
+        {
             printf(RED "\n\n                                     [!] O campo usuário não pode estar vazio!\a" RESET);
             SetConsoleTextAttribute(hConsole, saved_attributes);
             Sleep(800);
@@ -126,7 +134,8 @@ void telaLogin(){
         char senha1[TAM_user] = {0}; // Inicializa a senha
         mascSenha('\0', senha1); // Função para mascarar a entrada da senha
 
-        if (strlen(senha1) == 0) {
+        if (strlen(senha1) == 0)
+        {
             printf(RED "\n\n                                      [!] O campo senha não pode estar vazio!\a" RESET);
             SetConsoleTextAttribute(hConsole, saved_attributes);
             Sleep(800);
@@ -135,21 +144,29 @@ void telaLogin(){
         }
 
         // Verifica login
-        if(verificaLogin(pessoa.login.usuario, senha1, pessoa.cargo)){
+        if(verificaLogin(pessoa.login.usuario, senha1, pessoa.cargo))
+        {
             telaLimpa();
             // Aqui você pode usar o cargo para redirecionar o usuário
-            if(strcmp(pessoa.cargo, "ADMINISTRADOR") == 0){
+            if(strcmp(pessoa.cargo, "ADMINISTRADOR") == 0)
+            {
                 telaMenuAdmin(); // Chama a tela do menu do administrador
-            }else if(strcmp(pessoa.cargo, "GERENTE") == 0){
+            }
+            else if(strcmp(pessoa.cargo, "GERENTE") == 0)
+            {
                 telaGerente(); // Chama a tela do gerente
-            }else if(strcmp(pessoa.cargo, "OPERADOR DE CAIXA") == 0 || strcmp(pessoa.cargo, "ESTOQUISTA") == 0){
+            }
+            else if(strcmp(pessoa.cargo, "OPERADOR DE CAIXA") == 0 || strcmp(pessoa.cargo, "ESTOQUISTA") == 0)
+            {
                 telaFuncionario(); // Chama a tela do funcionário
             }
             break; // Sai do loop se o login for bem-sucedido
-        }else{
+        }
+        else
+        {
             bold(1);
             printf(RED "\n\n\t\t\t\t\t\t  [!] Login incorreto!\n"
-                       "\t\t\t\t\t   Usuário ou senha estão incorretos!\a" RESET);
+                   "\t\t\t\t\t   Usuário ou senha estão incorretos!\a" RESET);
             bold(0);
             SetConsoleTextAttribute(hConsole, saved_attributes);
             Sleep(800);
@@ -158,7 +175,8 @@ void telaLogin(){
     }
 }
 
-void telaMenuAdmin(){
+void telaMenuAdmin()
+{
 
     system("title Menu Administrador");
 
@@ -172,49 +190,50 @@ void telaMenuAdmin(){
 
     int escolha;
 
-    do{
+    do
+    {
         printf("\n\n\n\n\n\n\n"
                "\n                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                MENU                ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [1] - Tela do Gerente           ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [2] - Tela do Funcionário       ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [0] - Sair                      ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           " Escolha uma opção para continuar: ");
 
@@ -222,7 +241,8 @@ void telaMenuAdmin(){
         fflush(stdin);
         SetConsoleTextAttribute(hConsole, saved_attributes);
 
-        switch(escolha){
+        switch(escolha)
+        {
         case 0:
             telaLimpa();
             SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY | BACKGROUND_RED);
@@ -248,11 +268,13 @@ void telaMenuAdmin(){
             Sleep(800);
         }
         telaLimpa();
-    }while(escolha != 0);
+    }
+    while(escolha != 0);
     telaLimpa();
 }
 
-void telaGerente(){
+void telaGerente()
+{
 
     system("title Menu Gerencia");
 
@@ -266,64 +288,60 @@ void telaGerente(){
 
     int escolha;
 
-    do{
+    do
+    {
         printf("\n\n\n\n\n\n\n"
                "\n                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                MENU                ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [1] - Cadastro                  ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [2] - Ponto de Venda            ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [3] - Estoque                   ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
-        printf(                                           "    [4] - Preços                    ");
+        printf(                                           "    [4] - Informações               ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
-        SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
-        printf(                                           "    [5] - Informações               ");
-        SetConsoleTextAttribute(hConsole, saved_attributes);
-        printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "    [0] - Sair                      ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           " Escolha uma opção para continuar: ");
 
@@ -331,7 +349,8 @@ void telaGerente(){
         fflush(stdin);
         SetConsoleTextAttribute(hConsole, saved_attributes);
 
-        switch(escolha){
+        switch(escolha)
+        {
         case 0:
             telaLimpa();
             SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY | BACKGROUND_RED);
@@ -347,17 +366,14 @@ void telaGerente(){
             break;
         case 2:
             telaLimpa();
-            telaPedido();
+            telaPedido(1, 2);
 
             break;
         case 3:
             telaLimpa();
-            telaEstoque();
+            telaEstoque(1);
             break;
         case 4:
-            telaLimpa();
-            break;
-        case 5:
             telaLimpa();
             DadosUsuario();
             break;
@@ -369,11 +385,13 @@ void telaGerente(){
             Sleep(800);
         }
         telaLimpa();
-    }while(escolha != 0);
+    }
+    while(escolha != 0);
     telaLimpa();
 }
 
-void telaFuncionario(){
+void telaFuncionario()
+{
 
     system("title Menu Funcionário");
 
@@ -387,24 +405,25 @@ void telaFuncionario(){
 
     int escolha;
 
-    do{
+    do
+    {
         printf("\n\n\n\n\n\n\n"
                "\n                                          #===============================#                                             \n"
-                 "                                          |             MENU              |                                             \n"
-                 "                                          #===============================#                                             \n"
-                 "                                          |                               |                                             \n"
-                 "                                          |   [1] - Pedidos               |                                             \n"
-                 "                                          |   [2] - Estoque               |                                             \n"
-                 "                                          |   [3] - Minhas Informações    |                                             \n"
-                 "                                          |   [0] - Sair                  |                                             \n"
-                 "                                          |                               |                                             \n"
-                 "                                          #===============================#                                             \n"
+               "                                          |             MENU              |                                             \n"
+               "                                          #===============================#                                             \n"
+               "                                          |                               |                                             \n"
+               "                                          |   [1] - Pedidos               |                                             \n"
+               "                                          |   [2] - Estoque               |                                             \n"
+               "                                          |   [0] - Sair                  |                                             \n"
+               "                                          |                               |                                             \n"
+               "                                          #===============================#                                             \n"
                "\n                                         Escolha uma opção para continuar: ");
 
         scanf("%i", &escolha);
         fflush(stdin);
 
-        switch(escolha){
+        switch(escolha)
+        {
         case 0:
             telaLimpa();
             SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY | BACKGROUND_RED);
@@ -416,14 +435,12 @@ void telaFuncionario(){
             break;
         case 1:
             telaLimpa();
+            telaPedido(2, 2);
 
             break;
         case 2:
             telaLimpa();
-
-            break;
-        case 3:
-            telaLimpa();
+            telaEstoque();
 
             break;
         default :
@@ -434,11 +451,13 @@ void telaFuncionario(){
             Sleep(800);
         }
         telaLimpa();
-    }while(escolha != 0);
+    }
+    while(escolha != 0);
     telaLimpa();
 }
 
-void telaSaida(){
+void telaSaida()
+{
 
     system("title Sair");
 
@@ -452,54 +471,55 @@ void telaSaida(){
 
     int escolha;
 
-    do{
+    do
+    {
         printf("\n\n\n\n\n\n\n\n\n"
                "\n                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                MENU                ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "      [1] - Voltar ao Início        ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "      [2] - Login                   ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "      [0] - Encerrar Programa       ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_INTENSITY);
         printf(                                           "                                    ");
         SetConsoleTextAttribute(hConsole, saved_attributes);
         printf(                                                                                "                                        \n"
-                 "                                        ");
+                "                                        ");
         SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN);
         printf(                                           " Escolha uma opção para continuar: ");
 
@@ -507,7 +527,8 @@ void telaSaida(){
         fflush(stdin);
         SetConsoleTextAttribute(hConsole, saved_attributes);
 
-        switch(escolha){
+        switch(escolha)
+        {
         case 1:
             telaLimpa();
             telaInicio();
@@ -528,7 +549,8 @@ void telaSaida(){
             Sleep(800);
         }
         telaLimpa();
-    }while(escolha != 0);
+    }
+    while(escolha != 0);
     telaLimpa();
 }
 
@@ -648,7 +670,7 @@ void telaCadastroItem()
     while (continuar == 's' || continuar == 'S')
     {
         // Entrada do item
-        printf("Nome item: ");
+        printf("\n\nNome item: ");
         scanf("%s", item.nome);
         printf("Preço item: ");
         scanf("%f", &item.preco);
@@ -670,7 +692,7 @@ void telaCadastroItem()
     //telaGerente();
 }
 
-void telaEstoque()
+void telaEstoque(int nv_acesso)
 {
     system("title Estoque");
 
@@ -696,11 +718,19 @@ void telaEstoque()
     fclose(file);
     telaPause();
     telaLimpa();
-    telaGerente();
+
+    if (nv_acesso == 1)
+    {
+        telaGerente();
+    }
+    else
+    {
+        telaFuncionario();
+    }
     //return 0;
 }
 
-void telaPedido(int reChamar)
+void telaPedido(int nv_acesso, int reChamar)
 {
     system("title Pedido");
 
@@ -755,7 +785,7 @@ void telaPedido(int reChamar)
         }
     }
 
-    listarCompras(total_itens, reChamado);
+    listarCompras(total_itens, reChamado, nv_acesso);
 
 
     fclose(file);
@@ -765,7 +795,7 @@ void telaPedido(int reChamar)
     //return 0;
 }
 
-void listarCompras(int total_itens, int reChamado)
+void listarCompras(int total_itens, int reChamado, int nv_acesso)
 {
     int itemSelecionado;
     float quantidade, valorPorKG;
@@ -806,10 +836,62 @@ void listarCompras(int total_itens, int reChamado)
         scanf("%f", &quantidade);
 
         // Guarda item e quantidade
-        int temp_indice = itemSelecionado - 1;  // Adjust to zero-based index
+        int temp_indice = itemSelecionado - 1;  // Mudar indice para -1, para casar com o id da matriz
         strcpy(itensSelecionados[contagemItems], matrizItens[temp_indice][0]);  // Salvar nome do item
         quantidadeSelecionada[contagemItems] = quantidade;  // Salvar quantidade
         contagemItems++;
+
+
+
+        //Subtrair quantidade do estoque
+        char temp_quantidade[50];
+        char *endptr0;
+        float quantidade_float = strtof(matrizItens[temp_indice][2], &endptr0);   // Converte char para float
+
+        if (quantidade > quantidade_float)
+        {
+            printf("\033[45CAviso! Recomendado fazer inventário do estoque!");
+            quantidade_float = quantidade_float - quantidade;
+        }
+        else
+        {
+            quantidade_float = quantidade_float - quantidade;
+            // Converte float para string
+            sprintf(temp_quantidade, "%.2f", quantidade_float);
+
+            // Passando a nova quantidade para a matrix
+            strcpy(matrizItens[temp_indice][2], temp_quantidade);
+        }
+
+
+        // Abrir arquivo modo escrita
+        FILE *file = fopen("items.txt", "w");
+        if (file == NULL)
+        {
+            perror("Falha ao abrir o arquivo");
+            //return 1;
+            continue;
+        }
+
+        // Passar a matrix para o arquivo
+        for (int i = 0; i < total_itens; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                fprintf(file, "%s", matrizItens[i][j]);
+                if (j < 2)
+                {
+                    // coloca espaço entre os itens no txt
+                    fprintf(file, " ");
+                }
+            }
+            // nova linha quando for novo item
+            fprintf(file, "\n");
+        }
+
+        // Fecha o arquivo
+        fclose(file);
+
 
         // Somando o valor final da compra
         char *endptr;
@@ -834,14 +916,29 @@ void listarCompras(int total_itens, int reChamado)
             //telaPause();
             telaLimpa();
             // Chamando a função com parametro 9 para saber que está sendo chamada por esta função
-            telaPedido(9);
+            if (nv_acesso == 1)
+            {
+                telaPedido(1, 9);
+            }
+            else
+            {
+                telaPedido(2, 9);
+            }
             continue;
         }
         else
         {
             telaPause();
             telaLimpa();
-            finalizarCompra();
+            if (nv_acesso == 1)
+            {
+                finalizarCompra(1);
+            }
+            else
+            {
+                finalizarCompra(2);
+            }
+            //finalizarCompra();
             continue;
         }
 
@@ -858,7 +955,7 @@ void listarCompras(int total_itens, int reChamado)
     //telaPedido();
 }
 
-void finalizarCompra()
+void finalizarCompra(int nv_acesso)
 {
     printf("\nItens selecionados:\n");
     printf("Nome               Quantidade(gramas)\n");
@@ -876,6 +973,14 @@ void finalizarCompra()
 
     telaPause();
     telaLimpa();
-    telaGerente();
+    if (nv_acesso == 1)
+    {
+        telaGerente();
+    }
+    else
+    {
+        telaFuncionario();
+    }
+    //telaGerente();
 }
 

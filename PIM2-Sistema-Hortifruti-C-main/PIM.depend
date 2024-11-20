@@ -73,7 +73,7 @@
 	"estilos.h"
 	"funcoes.h"
 
-1730006974 source:c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\main.c
+1731290806 source:c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -86,7 +86,7 @@
 	"estilos.c"
 	"cadastros.c"
 
-1730139900 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\interface.c
+1731425501 c:\users\arthur dias\desktop\pasta pim\pim2-sistema-hortifruti-c-main\interface.c
 	"interface.h"
 	"structs.h"
 	"funcoes.h"
